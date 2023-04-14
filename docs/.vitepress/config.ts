@@ -2,27 +2,27 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Let's leetcode",
-  description: "LeetCode Notes",
+  lang: '',
+  title: "My LeetCode",
+  titleTemplate: "Better Solution",
+  description: "Better Solution",
+  rewrites: {
+    '/26-remove-duplicates-from-sorted-array.md': '/26/index.html'
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
-    ],
 
     sidebar: [
       {
-        text: 'Examples',
+        text: '',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: '26', link: '/26-remove-duplicates-from-sorted-array', },
         ]
       }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+      { icon: 'github', link: 'https://github.com/lvjiaxuan/interview' }
+    ],
   }
 })
