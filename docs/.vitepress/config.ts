@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  lang: '',
+  base: '/interview',
   title: "My LeetCode",
   titleTemplate: "Better Solution",
   description: "Better Solution",
