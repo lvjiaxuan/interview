@@ -1,4 +1,20 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, type DefaultTheme } from 'vitepress'
+import fs from 'node:fs'
+import path from 'node:path'
+
+
+function resolveSidebarItems () {
+  const dirs = fs.readdirSync(path.join(__dirname, '..'))
+  const reg = /(?<no>\d+)-(?<name>[\w-]+)\.md/i
+  return dirs.reduce((pre, item) => {
+    const match = item.match(reg)
+    match && pre.push({
+      text: match.groups!.name,
+      link: '/' + match.groups!.no
+    })
+    return pre
+  }, [] as DefaultTheme.SidebarItem[])
+}
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -7,17 +23,14 @@ export default defineConfig({
   titleTemplate: "Better Solution",
   description: "Better Solution",
   rewrites: {
-    '/26-remove-duplicates-from-sorted-array.md': '/26/index.html'
+    ':no(\\d+)-(.+).md': ':no.md'
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
 
     sidebar: [
       {
-        text: '',
-        items: [
-          { text: '26', link: '/26-remove-duplicates-from-sorted-array', },
-        ]
+        items: resolveSidebarItems()
       }
     ],
 
