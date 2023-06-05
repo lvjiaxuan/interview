@@ -8,3 +8,4 @@
 - https://vue3js.cn/interview
 - https://github.com/haizlin/fe-interview
 - https://github.com/whylisa/front-end-interview
+- https://github.com/pwstrick/daily
